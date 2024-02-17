@@ -515,7 +515,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade
+  m_text: Speed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -610,7 +610,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &428838852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade
+  m_text: Health
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1168,7 +1168,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 639974732}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1039522641}
+        m_TargetAssemblyTypeName: GoldManage, Assembly-CSharp
+        m_MethodName: AttackSpeedUpgrader
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &639974732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1292,7 +1304,7 @@ GameObject:
   - component: {fileID: 873117435}
   - component: {fileID: 873117434}
   m_Layer: 5
-  m_Name: TrapUpgradeButton
+  m_Name: HealthUpgradeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1361,7 +1373,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 873117435}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1039522641}
+        m_TargetAssemblyTypeName: GoldManage, Assembly-CSharp
+        m_MethodName: HealthUpgrader
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &873117435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1445,10 +1469,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1de214ed81f0e44ea4b38c6da25cf28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 0
-  damage: {fileID: 0}
-  playerMovementi: {fileID: 0}
-  weapon: {fileID: 0}
+  gold: 20
+  playerMovementi: {fileID: 1362721387}
+  weapon: {fileID: 1528463075}
+  playerHealth: {fileID: 1362721388}
 --- !u!114 &1039522642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1519,7 +1543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade
+  m_text: Damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1970,7 +1994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade
+  m_text: Attack Speed
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2314,7 +2338,7 @@ GameObject:
   - component: {fileID: 1528463075}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2400,9 +2424,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 1615190515}
-  bulletPrefab: {fileID: 2195675161171975343, guid: 04cd06237b296e04e84ab8020e88eab5, type: 3}
+  bulletPrefab: {fileID: 5094956272828352566, guid: 04cd06237b296e04e84ab8020e88eab5, type: 3}
   bulletSpeed: 10
   attackSpeed: 1.5
+  bulletDamage: 1
 --- !u!1 &1598226863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,7 +2510,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1598226866}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1039522641}
+        m_TargetAssemblyTypeName: GoldManage, Assembly-CSharp
+        m_MethodName: DamageUpgrader
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1598226866
 MonoBehaviour:
   m_ObjectHideFlags: 0

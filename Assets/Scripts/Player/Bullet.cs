@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Arrow : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-public float bulletDamage = 1;
+public Weapon weapon;
     void Start()
     {
         StartCoroutine(bulletDestroy());
+        weapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<Weapon>();
     }
 
     IEnumerator bulletDestroy()
@@ -18,13 +19,13 @@ public float bulletDamage = 1;
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-       if(other.CompareTag("Obsicle"))
+       if(other.CompareTag("Enemy"))
        {
+        other.GetComponent<EnemyCombat>().enemyHealth -= weapon.bulletDamage;
         Destroy(gameObject);
        }
-       else if(other.CompareTag("Enemy"))
+       else if(other.CompareTag("Obsicle"))
        {
-        other.GetComponent<EnemyCombat>().enemyHealth -= bulletDamage;
         Destroy(gameObject);
        }
     }

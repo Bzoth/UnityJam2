@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class GoldManage : MonoBehaviour
 {
-        public int gold = 0;
-    int speedUpgradeCost = 1;
-    int damageUpgradeCost = 1;
-    int attackSpeedUpgradeCost = 1;
-    int TrapUpgradeCost = 1;
-    public EnemyCombat damage;
+    public float gold = 0;
+    float speedUpgradeCost = 1;
+    float damageUpgradeCost = 1;
+    float attackSpeedUpgradeCost = 1;
+    float HealthUpgradeCost = 1;
     public PlayerMovementi playerMovementi;
     public Weapon weapon;
-
+    public PlayerHealth playerHealth;
     public void SpeedUpgrader()
     {
         if( gold >= speedUpgradeCost)
@@ -28,25 +27,26 @@ public class GoldManage : MonoBehaviour
         {
             gold -= damageUpgradeCost;
             damageUpgradeCost += 2;
-            playerMovementi.speed++;
+            weapon.bulletDamage++;
         }
     }
     public void AttackSpeedUpgrader()
     {
-        if( gold >= speedUpgradeCost)
+        if( gold >= attackSpeedUpgradeCost)
         {
-            gold -= speedUpgradeCost;
-            speedUpgradeCost += 2;
-            playerMovementi.speed++;
+            gold -= attackSpeedUpgradeCost;
+            attackSpeedUpgradeCost += 2;
+            weapon.attackSpeed -= 0.3f;
         }
     }
-    public void TrapUpgrader()
+    public void HealthUpgrader()
     {
-        if( gold >= speedUpgradeCost)
+        if( gold >= HealthUpgradeCost)
         {
-            gold -= speedUpgradeCost;
-            speedUpgradeCost += 2;
-            playerMovementi.speed++;
+            gold -= HealthUpgradeCost;
+            HealthUpgradeCost += 2;
+            playerHealth.playerHealth += 5;
+            playerHealth.playerMaxhealth += 5;
         }
     }
     
