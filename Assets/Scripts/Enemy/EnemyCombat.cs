@@ -9,7 +9,6 @@ public class EnemyCombat : MonoBehaviour
   public float enemyHealth;
   public EnemyMove enemyMoveComp;
   public GoldManage goldManage;
-
   [SerializeField] EnemyHealthBar enemyHealthBar;
 
   void Start()
@@ -41,7 +40,4 @@ public class EnemyCombat : MonoBehaviour
     yield return new WaitForSeconds(0.5f);
     enemyMoveComp.speed += 1;
   }
-  
-
-  
 }
