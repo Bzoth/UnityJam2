@@ -298,7 +298,8 @@ MonoBehaviour:
   enemyHealth: 0
   enemyMoveComp: {fileID: 191400255155993822}
   goldManage: {fileID: 0}
-  enemyHealthBar: {fileID: 0}
+  damage: 1
+  enemyHealthBar: {fileID: 1454118758560930174}
 --- !u!1 &3741114798449637596
 GameObject:
   m_ObjectHideFlags: 0

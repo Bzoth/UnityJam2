@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 8;
     private bool canFire = true;
+    public float attackSpeed = 1.5f;
 
     public void Fire()
     {
@@ -22,7 +23,7 @@ public class Weapon : MonoBehaviour
             canFire = false;
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.up * bulletSpeed;
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(attackSpeed);
             canFire = true;
         }
     }

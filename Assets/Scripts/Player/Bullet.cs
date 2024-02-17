@@ -12,16 +12,15 @@ public class Arrow : MonoBehaviour
 
     IEnumerator bulletDestroy()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         Destroy(gameObject);
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if ( other.CompareTag("Animal") )
-        {
-            other.gameObject.GetComponent<EnemyCombat>().TakeEnemyDamage(1);
-            Destroy(gameObject);
-        }
+       if(!other.CompareTag("Player"))
+       {
+        Destroy(gameObject);
+       }
     }
     
 }

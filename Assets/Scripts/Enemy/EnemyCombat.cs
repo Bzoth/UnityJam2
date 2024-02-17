@@ -9,6 +9,7 @@ public class EnemyCombat : MonoBehaviour
   public float enemyHealth;
   public EnemyMove enemyMoveComp;
   public GoldManage goldManage;
+  public float damage = 1f;
   [SerializeField] EnemyHealthBar enemyHealthBar;
 
   void Start()
@@ -17,6 +18,7 @@ public class EnemyCombat : MonoBehaviour
     enemyMoveComp = GetComponent<EnemyMove>();
     enemyHealthBar = GetComponentInChildren<EnemyHealthBar>();
     enemyHealthBar.UpdateHealth(enemyHealth, enemyMaxHealth);
+    goldManage.GetComponent<GoldManage>();
   }
   void Update()
   {
@@ -27,7 +29,24 @@ public class EnemyCombat : MonoBehaviour
     }
   }
 
-  public void TakeEnemyDamage(int damage)
+  void OnTriggerEnter2D(Collider2D other)
+    {
+        if ( other.CompareTag("Bullet") )
+        {
+          
+          if(enemyHealth > 0)
+          {
+            TakeEnemyDamage();
+          }
+          else
+          {
+            Destroy(gameObject);
+          }
+          
+        }
+    }
+
+  void TakeEnemyDamage()
   {
 
     enemyHealth -= damage;

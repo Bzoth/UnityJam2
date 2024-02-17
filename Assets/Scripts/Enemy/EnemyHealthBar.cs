@@ -10,6 +10,11 @@ public class EnemyHealthBar : MonoBehaviour
     [SerializeField] private Camera cameraOne;
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset;
+
+    void Start()
+    {
+        cameraOne = Camera.main;
+    }
     void Update()
     {
         transform.rotation = cameraOne.transform.rotation;
