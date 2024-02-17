@@ -26,4 +26,11 @@ public class PlayerAwareness : MonoBehaviour
             AwareOfPlayer = false;
         }
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Bullet"))
+        {
+            playerAwarenessDistance += 40;
+        }
+    }
 }

@@ -24,7 +24,6 @@ public class EnemyMove : MonoBehaviour
         RotateTowardsTarget();
         SetVelocity();
     }
-
     private void UpdateTargetDirection()
     {
         HandleRandomDirectionChange();

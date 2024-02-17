@@ -4,8 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Animal
   - Bullet
+  - Enemy
+  - Obsicle
+  - Area
+  - Animal
   layers:
   - Default
   - TransparentFX
