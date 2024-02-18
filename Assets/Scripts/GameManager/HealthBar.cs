@@ -17,10 +17,7 @@ public class HealthBar : MonoBehaviour
         float deneme = (playersHealth.playerHealth / playersHealth.playerMaxhealth) *10;
         playerHealthSlider.value = (playersHealth.playerHealth / playersHealth.playerMaxhealth)*10;
     }
-    public void HealthBarTextChange()
-    {
-       // healthText.text = playersHealth.playerHealth.ToString();
-    }
+    
 
     public void UpdatePlayerHealth(float currentHealthValue, float maxHealthValue)
     {

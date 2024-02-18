@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GoldManage : MonoBehaviour
 {
@@ -12,6 +15,20 @@ public class GoldManage : MonoBehaviour
     public PlayerMovementi playerMovementi;
     public Weapon weapon;
     public PlayerHealth playerHealth;
+    public TextMeshProUGUI goldText;
+    public TextMeshProUGUI costTextZero;
+    public TextMeshProUGUI costTextOne;
+    public TextMeshProUGUI costTextTwo;
+    public TextMeshProUGUI costTextThree;
+
+    public Sprite tier1,tier2,tier3,tier4,tier5,tier6;
+    public Image speedTier,damageTier,attackSpeedTier,healthTier;
+
+    void Update()
+    {
+        GoldTextChange();
+        TierChanger();
+    }
     public void SpeedUpgrader()
     {
         if( gold >= speedUpgradeCost)
@@ -48,6 +65,20 @@ public class GoldManage : MonoBehaviour
             playerHealth.playerHealth += 5;
             playerHealth.playerMaxhealth += 5;
         }
+    }
+
+    public void GoldTextChange()
+    {
+       goldText.text = gold.ToString();
+       costTextZero.text = speedUpgradeCost.ToString();
+       costTextOne.text = damageUpgradeCost.ToString();
+       costTextTwo.text = attackSpeedUpgradeCost.ToString();
+       costTextThree.text = HealthUpgradeCost.ToString();
+    }
+
+    public void TierChanger()
+    {
+
     }
     
 }
