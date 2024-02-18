@@ -9,12 +9,12 @@ public class EnemyAttackArea : MonoBehaviour
     public EnemyMove enemyMove;
     private bool enemyAttackCD = true;
     private float x;
-    private Animator anim;
+    public Animator anim;
+    public Animation animation;
 
     void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -38,7 +38,7 @@ public class EnemyAttackArea : MonoBehaviour
     enemyMove.speed -= x;
     anim.SetTrigger("isWolfAttacking");
     playerHealth.playerHealth -= 2;
-    yield return new WaitForSeconds(1);
+    yield return new WaitForSeconds(2);
     enemyMove.speed += x;
     enemyAttackCD = true;
     }
