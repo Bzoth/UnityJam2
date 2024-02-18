@@ -6,6 +6,9 @@ public class EnemyMove : MonoBehaviour
     public float speed = 3;
     [SerializeField] private float rotationSpeed;
 
+    EnemyAttackArea area;
+
+    private Animator anim;
     private Rigidbody2D rb;
     private PlayerAwareness playerAwareness;
     private Vector2 targetDirection;
@@ -14,7 +17,9 @@ public class EnemyMove : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         playerAwareness = GetComponent<PlayerAwareness>();
+        area = GetComponent<EnemyAttackArea>();
         targetDirection =transform.up;
     }
 
@@ -63,5 +68,9 @@ public class EnemyMove : MonoBehaviour
         rb.velocity =transform.up * speed;
     }
     
+    private void AnimControl()
+    {
+        anim.SetBool("isWolfAttacking", area.enemyAnimCheck);
+    }
 
 }

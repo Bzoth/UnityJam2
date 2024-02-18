@@ -6,6 +6,8 @@ using UnityEngine;
 public class EnemyAttackArea : MonoBehaviour
 {
     private PlayerHealth playerHealth;
+
+    public bool enemyAnimCheck;
     public EnemyMove enemyMove;
     private bool enemyAttackCD = true;
     private float x;
@@ -33,14 +35,16 @@ public class EnemyAttackArea : MonoBehaviour
   {
     if (enemyAttackCD == true)
     {
-    x = enemyMove.speed;
-    enemyAttackCD = false;
-    enemyMove.speed -= x;
-    anim.SetTrigger("isWolfAttacking");
-    playerHealth.playerHealth -= 2;
-    yield return new WaitForSeconds(1);
-    enemyMove.speed += x;
-    enemyAttackCD = true;
+      enemyAnimCheck = true;
+      
+      x = enemyMove.speed;
+      enemyAttackCD = false;
+      enemyMove.speed -= x;
+      playerHealth.playerHealth -= 2;
+      yield return new WaitForSeconds(1);
+      enemyAnimCheck = false;
+      enemyMove.speed += x;
+      enemyAttackCD = true;
     }
   }
 
